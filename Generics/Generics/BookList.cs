@@ -17,14 +17,22 @@ namespace Generics
 
     }
 
-    public class ObjectList
+    public class GenericDictionary<TKey, TValue>
     {
-        public void Add(object value)
+        public void Add(TKey key, TValue value)
+        {
+            
+        }
+    }
+
+    public class GenericList<T>
+    {
+        public void Add(T value)
         {
             
         }
 
-        public object this[int index]
+        public T this[int index]
         {
             get { throw new NotImplementedException();}
         }
