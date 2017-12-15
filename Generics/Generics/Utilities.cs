@@ -2,7 +2,7 @@
 
 namespace Generics
 {
-    public class Utilities
+    public class Utilities<T> where T : IComparable
     {
         public int Max(int a, int b)
         {
@@ -10,7 +10,7 @@ namespace Generics
         }
 
         // generic method, requires constraint of IComparable
-        public T Max<T>(T a, T b) where T : IComparable
+        public T Max(T a, T b)
         {
             return a.CompareTo(b) > 0 ? a : b;
         }
