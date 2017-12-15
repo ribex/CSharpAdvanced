@@ -13,8 +13,6 @@ namespace Generics
         {
             get { throw new NotImplementedException(); }
         }
-
-
     }
 
     public class GenericDictionary<TKey, TValue>
