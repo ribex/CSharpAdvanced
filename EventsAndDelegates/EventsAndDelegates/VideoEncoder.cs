@@ -28,5 +28,6 @@ namespace EventsAndDelegates
                 VideoEncoded(this, EventArgs.Empty);
             }
         }
+
     }
 }
