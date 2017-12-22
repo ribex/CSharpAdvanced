@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace Async
@@ -19,7 +20,7 @@ namespace Async
             DownloadHtml("https://msdn.microsoft.com");
         }
 
-        public 
+        public async Task
 
         public void DownloadHtml(string url)
         {
