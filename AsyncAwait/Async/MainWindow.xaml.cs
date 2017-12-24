@@ -21,6 +21,9 @@ namespace Async
         }
 
         public async Task
+        {
+            
+        }
 
         public void DownloadHtml(string url)
         {
