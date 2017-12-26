@@ -15,14 +15,39 @@ namespace Async
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            DownloadHtml("https://msdn.microsoft.com");
+            var getHtmlTast = GetHtmlAsync("https://msdn.microsoft.com");
+            MessageBox.Show("Waiting for the task to complete");
+//            DownloadHtmlAsync("https://msdn.microsoft.com");
+            var html = await GetHtmlAsync("https://msdn.microsoft.com");
+            MessageBox.Show(html.Substring(0, 10));
         }
 
-        public async Task
+        public async Task<string> GetHtmlAsync(string url)
         {
-            
+            var webClient = new WebClient();
+
+            return await webClient.DownloadStringTaskAsync(url);
+        }
+
+        public string GetHtml(string url)
+        {
+            var webClient = new WebClient();
+
+            return webClient.DownloadString(url);
+        }
+
+
+        public async Task DownloadHtmlAsync(string url)
+        {
+            var webClient = new WebClient();
+            var html = await webClient.DownloadStringTaskAsync(url);
+
+            using (var streamWriter = new StreamWriter(@"c:\projects\result.html"))
+            {
+                await streamWriter.WriteAsync(html);
+            }
         }
 
         public void DownloadHtml(string url)
